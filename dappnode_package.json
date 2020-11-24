@@ -35,8 +35,5 @@
     "ui": "http://prysm.dappnode/",
     "readme": "https://github.com/dappnode/DAppNodePackage-prysm",
     "prysm": "https://prylabs.net"
-  },
-  "dependencies": {
-    "goerli-geth.dnp.dappnode.eth": "latest"
   }
 }
