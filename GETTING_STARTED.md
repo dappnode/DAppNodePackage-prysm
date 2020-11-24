@@ -1,1 +1,1 @@
-Go to [prysm-mainnet.dappnode](http://prysm-mainnet.dappnode)
+Go to [prysm.dappnode](http://prysm.dappnode)

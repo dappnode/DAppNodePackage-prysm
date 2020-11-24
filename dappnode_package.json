@@ -1,11 +1,11 @@
 {
-  "name": "prysm-mainnet.dnp.dappnode.eth",
+  "name": "prysm.dnp.dappnode.eth",
   "version": "1.0.0",
   "upstreamVersion": "v1.0.0",
   "upstreamRepo": "prysmaticlabs/prysm",
   "upstreamArg": "UPSTREAM_VERSION",
   "shortDescription": "Prysm mainnet ETH2.0 Beacon chain + validator",
-  "description": "Validate with prysm: a Go implementation of the Ethereum 2.0 Serenity protocol and open source project created by Prysmatic Labs. Beacon node which powers the beacon chain at the core of Ethereum 2.0",
+  "description": "Validate with Prysm: a Go implementation of the Ethereum 2.0 Serenity protocol and open source project created by Prysmatic Labs.",
   "type": "service",
   "mainService": "validator",
   "author": "DAppNode Association <admin@dappnode.io> (https://github.com/dappnode)",
@@ -15,10 +15,10 @@
   "license": "GPL-3.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dappnode/DAppNodePackage-prysm-mainnet.git"
+    "url": "git+https://github.com/dappnode/DAppNodePackage-prysm.git"
   },
   "bugs": {
-    "url": "https://github.com/dappnode/DAppNodePackage-prysm-mainnet/issues"
+    "url": "https://github.com/dappnode/DAppNodePackage-prysm/issues"
   },
   "requirements": {
     "minimumDappnodeVersion": "0.2.39"
@@ -30,11 +30,10 @@
       "service": "validator"
     }
   ],
-  "categories": ["Blockchain"],
+  "categories": ["Blockchain", "ETH2.0"],
   "links": {
-    "ui": "http://prysm-mainnet.dappnode/",
-    "homepage": "https://prylabs.net/participate?node=dappnode",
-    "readme": "https://github.com/dappnode/DAppNodePackage-prysm-mainnet",
+    "ui": "http://prysm.dappnode/",
+    "readme": "https://github.com/dappnode/DAppNodePackage-prysm",
     "prysm": "https://prylabs.net"
   },
   "dependencies": {
