@@ -1,0 +1,17 @@
+# Dependencies
+**/node_modules
+node_modules/
+
+# API artifacts
+validator*/server/build/
+validator*/server/dist
+validator*/ui/build
+db-api/
+
+# Tests
+validator*/server/test/
+validator*/server/data/
+validator*/server/db-api/
+
+# DNP artifacts
+build_*/
