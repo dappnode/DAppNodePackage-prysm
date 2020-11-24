@@ -10,7 +10,7 @@ services:
       - "beacon-chain-data:/data"
     ports:
       - "13000"
-      - "12000"
+      - "12000/udp"
     restart: always
     environment:
       HTTP_WEB3PROVIDER: "http://geth.dappnode:8545"

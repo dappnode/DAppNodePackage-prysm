@@ -5,8 +5,8 @@ ARG UPSTREAM_VERSION
 ENV DOWNLOAD_URL https://github.com/prysmaticlabs/prysm/releases/download
 
 RUN DEBIAN_FRONTEND=noninteractive \
-      apt update && apt install --assume-yes --no-install-recommends wget ca-certificates
-RUN wget -q $DOWNLOAD_URL/$UPSTREAM_VERSION/validator-$UPSTREAM_VERSION-linux-${TARGETARCH:-amd64} -O /usr/local/bin/validator && \
+      apt update && apt install --assume-yes --no-install-recommends wget ca-certificates  && \
+      wget -q $DOWNLOAD_URL/$UPSTREAM_VERSION/validator-$UPSTREAM_VERSION-linux-${TARGETARCH:-amd64} -O /usr/local/bin/validator && \
       chmod +x /usr/local/bin/validator
 
 FROM debian:buster-slim
@@ -31,6 +31,7 @@ ENTRYPOINT [ "sh", "-c", "exec validator \
   --beacon-rpc-gateway-provider=$BEACON_RPC_GATEWAY_PROVIDER \
   --wallet-dir=/root/.eth2validators \
   --wallet-password-file=/root/.eth2wallets/wallet-password.txt \
+  --write-wallet-password-on-web-onboarding \
   --graffiti=$GRAFFITI \
   --web \
   --grpc-gateway-host=0.0.0.0 \
