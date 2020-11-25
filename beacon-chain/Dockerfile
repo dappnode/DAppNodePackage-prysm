@@ -29,8 +29,8 @@ ENTRYPOINT [ "sh", "-c", "exec beacon-chain \
   --rpc-host=0.0.0.0 \
   --grpc-gateway-host=0.0.0.0 \
   --monitoring-host=0.0.0.0 \
-  --http-web3provider=$HTTP_WEB3PROVIDER \
+  --http-web3provider=\"$HTTP_WEB3PROVIDER\" \
   --grpc-gateway-port=3500 \
-  --grpc-gateway-corsdomain=$CORSDOMAIN \
+  --grpc-gateway-corsdomain=\"$CORSDOMAIN\" \
   --accept-terms-of-use \
   $EXTRA_OPTS" ]
