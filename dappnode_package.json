@@ -7,6 +7,7 @@
   "shortDescription": "Prysm mainnet ETH2.0 Beacon chain + validator",
   "description": "Validate with Prysm: a Go implementation of the Ethereum 2.0 Serenity protocol and open source project created by Prysmatic Labs.",
   "type": "service",
+  "architectures": ["linux/amd64", "linux/arm64"],
   "mainService": "validator",
   "author": "DAppNode Association <admin@dappnode.io> (https://github.com/dappnode)",
   "contributors": [
