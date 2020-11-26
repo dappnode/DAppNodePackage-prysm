@@ -32,6 +32,10 @@
     }
   ],
   "categories": ["Blockchain", "ETH2.0"],
+  "style": {
+    "featuredBackground": "linear-gradient(67deg, #16000c, #123939)",
+    "featuredColor": "white"
+  },
   "links": {
     "ui": "http://prysm.dappnode/",
     "readme": "https://github.com/dappnode/DAppNodePackage-prysm",
