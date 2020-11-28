@@ -1,0 +1,20 @@
+[
+    {
+        "labels": {
+            "package": "prysm.dnp.dappnode.eth",
+            "service": "beacon-chain.prysm.dappnode"
+        },
+        "targets": [
+            "beacon-chain.prysm.dappnode:8080"
+        ]
+    },
+    {
+        "labels": {
+            "package": "prysm.dnp.dappnode.eth",
+            "service": "validator.prysm.dappnode"
+        },
+        "targets": [
+            "validator.prysm.dappnode:8081"
+        ]
+    }
+]
