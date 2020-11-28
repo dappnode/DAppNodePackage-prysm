@@ -28,7 +28,7 @@ ENTRYPOINT [ "sh", "-c", "exec beacon-chain \
   --datadir=/data \
   --rpc-host=0.0.0.0 \
   --grpc-gateway-host=0.0.0.0 \
-  --monitoring-host=beacon-chain.prysm-mainnet.dappnode \
+  --monitoring-host=beacon-chain.prysm.dappnode \
   --http-web3provider=\"$HTTP_WEB3PROVIDER\" \
   --grpc-gateway-port=3500 \
   --grpc-gateway-corsdomain=\"$CORSDOMAIN\" \
