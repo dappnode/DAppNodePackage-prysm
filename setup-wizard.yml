@@ -28,4 +28,4 @@ fields:
 
       - Nethermind `http://nethermind.public.dappnode:8545` - [Install link](http://my.dappnode/#/installer/nethermind.public.dappnode.eth)
 
-      - Remote node (example URL) `https://remote-note-provider.io`
+      - Remote node (example URL) `https://remote-node-provider.io`
