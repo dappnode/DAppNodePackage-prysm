@@ -11,7 +11,7 @@ services:
     ports:
       - "13000"
       - 12000/udp
-    restart: always
+    restart: unless-stopped
     environment:
       HTTP_WEB3PROVIDER: "http://geth.dappnode:8545"
       CORSDOMAIN: "http://prysm.dappnode"
@@ -24,7 +24,7 @@ services:
         UPSTREAM_VERSION: v1.0.4
     volumes:
       - "validator-data:/root/"
-    restart: always
+    restart: unless-stopped
     environment:
       BEACON_RPC_PROVIDER: "beacon-chain.prysm.dappnode:4000"
       BEACON_RPC_GATEWAY_PROVIDER: "beacon-chain.prysm.dappnode:3500"

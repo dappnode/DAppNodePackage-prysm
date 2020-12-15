@@ -23,7 +23,8 @@ ADD ssl /ssl/
 # Verify binary is in correct arch
 RUN /usr/local/bin/beacon-chain --version
 
-ENTRYPOINT [ "sh", "-c", "exec beacon-chain \
+ENTRYPOINT [ "sh", "-c", "echo \"0.0.0.0 beacon.prysm.dappnode\" >> /etc/hosts && \
+  exec beacon-chain \
   --mainnet \
   --datadir=/data \
   --rpc-host=0.0.0.0 \

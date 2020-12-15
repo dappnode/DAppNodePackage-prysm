@@ -22,7 +22,8 @@ COPY --from=binary /usr/local/bin/validator /usr/local/bin
 RUN /usr/local/bin/validator --version
 
 # Must used escaped \"$VAR\" to accept spaces: --graffiti=\"$GRAFFITI\"
-ENTRYPOINT [ "sh", "-c", "exec validator \
+ENTRYPOINT [ "sh", "-c", "echo \"0.0.0.0 validator.prysm.dappnode\" >> /etc/hosts && \
+  exec validator \
   --mainnet \
   --datadir=/root/.eth2 \
   --rpc-host 0.0.0.0 \

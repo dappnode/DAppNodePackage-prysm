@@ -13,3 +13,5 @@ To participate in staking, you can join the [official eth2 launchpad](https://la
 ---
 
 ![avatar](avatar-prysm.png)
+
+Grafana dashboard thanks to the amazing work of [metanull-operator](https://github.com/metanull-operator/eth2-grafana)
