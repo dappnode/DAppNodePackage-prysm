@@ -21,7 +21,7 @@ services:
     build:
       context: validator
       args:
-        UPSTREAM_VERSION: v1.2.2
+        UPSTREAM_VERSION: v1.3.2
     volumes:
       - "validator-data:/root/"
     restart: unless-stopped
