@@ -6,7 +6,8 @@ ENV DOWNLOAD_URL https://github.com/prysmaticlabs/prysm/releases/download
 
 RUN DEBIAN_FRONTEND=noninteractive \
     apt update && apt install --assume-yes --no-install-recommends wget ca-certificates && \
-    wget -q $DOWNLOAD_URL/$UPSTREAM_VERSION/beacon-chain-$UPSTREAM_VERSION-linux-${TARGETARCH:-amd64} -O /usr/local/bin/beacon-chain && \
+    #wget -q $DOWNLOAD_URL/$UPSTREAM_VERSION/beacon-chain-$UPSTREAM_VERSION-linux-${TARGETARCH:-amd64} -O /usr/local/bin/beacon-chain && \
+    wget -q https://github.com/prysmaticlabs/prysm/releases/download/v1.3.8-hotfix%2B6c0942/beacon-chain-v1.3.8-hotfix.6c0942-linux-${TARGETARCH:-amd64} -O /usr/local/bin/beacon-chain && \
     chmod +x  /usr/local/bin/beacon-chain
 
 FROM debian:buster-slim
