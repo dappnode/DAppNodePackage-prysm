@@ -6,8 +6,7 @@ ENV DOWNLOAD_URL https://github.com/prysmaticlabs/prysm/releases/download
 
 RUN DEBIAN_FRONTEND=noninteractive \
       apt update && apt install --assume-yes --no-install-recommends wget ca-certificates  && \
-      # wget -q $DOWNLOAD_URL/$UPSTREAM_VERSION/validator-$UPSTREAM_VERSION-linux-${TARGETARCH:-amd64} -O /usr/local/bin/validator && \
-      wget -q https://github.com/prysmaticlabs/prysm/releases/download/v1.3.8-hotfix%2B6c0942/validator-v1.3.8-hotfix.6c0942-linux-${TARGETARCH:-amd64} -O /usr/local/bin/validator && \
+      wget -q $DOWNLOAD_URL/$UPSTREAM_VERSION/validator-$UPSTREAM_VERSION-linux-${TARGETARCH:-amd64} -O /usr/local/bin/validator && \
       chmod +x /usr/local/bin/validator
 
 FROM debian:buster-slim
