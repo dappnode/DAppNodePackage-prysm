@@ -38,7 +38,8 @@
   },
   "links": {
     "ui": "http://prysm.dappnode/",
-    "readme": "https://github.com/dappnode/DAppNodePackage-prysm",
-    "prysm": "https://prysmaticlabs.com/"
+    "homepage": "https://prysmaticlabs.com/",
+    "readme": "https://github.com/dappnode/DAppNodePackage-prysm-prater",
+    "docs": "https://docs.prylabs.network/docs/getting-started"
   }
 }
