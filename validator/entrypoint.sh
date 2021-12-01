@@ -40,7 +40,7 @@ fi
 
 # Must used escaped \"$VAR\" to accept spaces: --graffiti=\"$GRAFFITI\"
 exec -c validator \
-  --prater \
+  --mainnet \
   --datadir=/root/.eth2 \
   --rpc-host 0.0.0.0 \
   --monitoring-host 0.0.0.0 \
