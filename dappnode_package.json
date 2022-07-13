@@ -22,7 +22,7 @@
     "url": "https://github.com/dappnode/DAppNodePackage-prysm/issues"
   },
   "requirements": {
-    "minimumDappnodeVersion": "0.2.39"
+    "minimumDappnodeVersion": "0.2.57"
   },
   "backup": [
     {
@@ -39,7 +39,13 @@
   "links": {
     "ui": "http://prysm.dappnode/",
     "homepage": "https://prysmaticlabs.com/",
-    "readme": "https://github.com/dappnode/DAppNodePackage-prysm-prater",
+    "readme": "https://github.com/dappnode/DAppNodePackage-prysm",
     "docs": "https://docs.prylabs.network/docs/getting-started"
+  },
+  "dependencies": {
+    "web3signer.dnp.dappnode.eth": "latest"
+  },
+  "warnings": {
+    "onRemove": "Make sure your web3signer does not have this client selected or you will stop validating! (Packages > web3signer > config > client)"
   }
 }
