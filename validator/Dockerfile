@@ -10,7 +10,7 @@ RUN apk update && apk add git && git clone https://github.com/dappnode/prune-sla
 ##############
 # Base image #
 ##############
-FROM debian:buster-slim as binary
+FROM debian:bullseye-slim as binary
 
 ARG TARGETARCH
 ARG UPSTREAM_VERSION
@@ -24,10 +24,9 @@ RUN DEBIAN_FRONTEND=noninteractive \
 ################
 # Runner image #
 ################
-FROM debian:buster-slim
+FROM debian:bullseye-slim
 
-RUN apt update && \
-  apt install -y ca-certificates file git curl && \
+RUN apt-get update && apt-get install -y ca-certificates file curl jq unzip zip && \
   rm -rf /var/lib/apt/lists/*
 
 # Copy slashing prune
