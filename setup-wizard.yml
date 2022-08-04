@@ -23,8 +23,6 @@ fields:
 
       - Geth `http://geth.dappnode:8545` - [Install link](http://my.dappnode/#/installer/geth.dnp.dappnode.eth)
 
-      - Erigon `http://erigon.dappnode:8545` - [Install link](http://my.dappnode/#/installer/erigon.dnp.dappnode.eth)
-
       - Nethermind `http://nethermind.public.dappnode:8545` - [Install link](http://my.dappnode/#/installer/nethermind.public.dappnode.eth)
 
-      - Remote node (example URL) `https://remote-node-provider.io`
+      - Remote node (example URL) `https://remote-node-provider.io` - Not an option with the upcoming merge.
