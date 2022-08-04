@@ -23,9 +23,7 @@ fields:
 
       - Geth `http://geth.dappnode:8545` - [Install link](http://my.dappnode/#/installer/geth.dnp.dappnode.eth)
 
-      - Turbo Geth `http://turbo-geth.dappnode:8545` - [Install link](http://my.dappnode/#/installer/turbo-geth.dnp.dappnode)
-
-      - OpenEthereum `http://openethereum.dappnode:8545` - [Install link](http://my.dappnode/#/installer/openethereum.dnp.dappnode.eth)
+      - Erigon `http://erigon.dappnode:8545` - [Install link](http://my.dappnode/#/installer/erigon.dnp.dappnode.eth)
 
       - Nethermind `http://nethermind.public.dappnode:8545` - [Install link](http://my.dappnode/#/installer/nethermind.public.dappnode.eth)
 
