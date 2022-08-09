@@ -17,8 +17,10 @@ fields:
     title: Execution Client endpoint
     description: >-
       Consensus clients require access to an execution client. 
-      - Geth `http://geth.dappnode:8545` - [Install link](http://my.dappnode/#/installer/geth.dnp.dappnode.eth) >-
-      - Nethermind `http://nethermind.public.dappnode:8545` - [Install link](http://my.dappnode/#/installer/nethermind.public.dappnode.eth)
+      
+      - Geth - `http://geth.dappnode:8545` - [Install link](http://my.dappnode/#/installer/geth.dnp.dappnode.eth)
+      
+      - Nethermind - `http://nethermind.public.dappnode:8545` - [Install link](http://my.dappnode/#/installer/nethermind.public.dappnode.eth)
   - id: web3Backup
     target:
       type: environment
