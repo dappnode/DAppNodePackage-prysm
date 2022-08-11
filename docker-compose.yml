@@ -14,7 +14,7 @@ services:
     restart: unless-stopped
     environment:
       HTTP_WEB3PROVIDER: "http://geth.dappnode:8545"
-      #CHECKPOINT_SYNC_URL: ""
+      CHECKPOINT_SYNC_URL: ""
       CORSDOMAIN: "http://prysm.dappnode"
       WEB3_BACKUP: ""
       EXTRA_OPTS: ""
