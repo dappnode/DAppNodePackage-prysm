@@ -6,8 +6,6 @@ fi
 
 if [[ -n $CHECKPOINT_SYNC_URL ]]; then
   EXTRA_OPTS="--checkpoint-sync-url=${CHECKPOINT_SYNC_URL} --genesis-beacon-api-url=${CHECKPOINT_SYNC_URL} ${EXTRA_OPTS}"
-else
-  EXTRA_OPTS="--genesis-state=/genesis.ssz ${EXTRA_OPTS}"
 fi
 
 exec -c beacon-chain \
