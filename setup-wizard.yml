@@ -10,6 +10,7 @@ fields:
     description: >-
       Add a string to your proposed blocks, which will be seen on the block explorer
   - id: HTTP_ENGINE
+    required: true
     target:
       type: environment
       name: HTTP_ENGINE

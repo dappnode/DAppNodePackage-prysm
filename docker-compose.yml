@@ -15,7 +15,7 @@ services:
     environment:
       P2P_TCP_PORT: 13103
       P2P_UDP_PORT: 12103
-      HTTP_ENGINE: "http://geth.dappnode:8545"
+      HTTP_ENGINE: "http://geth.dappnode:8551"
       CORSDOMAIN: "http://prysm.dappnode"
       EXTRA_OPTS: ""
   validator:
