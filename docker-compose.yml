@@ -9,11 +9,13 @@ services:
     volumes:
       - "beacon-chain-data:/data"
     ports:
-      - "13000"
-      - 12000/udp
+      - "13103:13103/tcp"
+      - "12103:12103/udp"
     restart: unless-stopped
     environment:
-      HTTP_WEB3PROVIDER: "http://geth.dappnode:8545"
+      P2P_TCP_PORT: 13103
+      P2P_UDP_PORT: 12103
+      HTTP_ENGINE: "http://geth.dappnode:8545"
       CORSDOMAIN: "http://prysm.dappnode"
       EXTRA_OPTS: ""
   validator:

@@ -9,21 +9,18 @@ fields:
     maxLength: 32
     description: >-
       Add a string to your proposed blocks, which will be seen on the block explorer
-  - id: HTTP_WEB3PROVIDER
+  - id: HTTP_ENGINE
     target:
       type: environment
-      name: HTTP_WEB3PROVIDER
+      name: HTTP_ENGINE
       service: beacon-chain
     title: Execution Layer Node URL
     required: true
     description: >-
-      Your Beacon chain node must have access to a syncronized Execution Layer (EL) mainnet node.
-      To be ready for the Merge you must run your own EL client, and cannot rely on a remote service such as Infura.
-      If you have not already, make sure to install and sync an Execution Layer node of your choice.
-      Then, input the URL of the node that you wish to use or a remote one:
+      The consensus client (Prysm,Lighthouse, Nimbus and Teku) requires to have access to an execution client to receive the execution payload by using Engine api of the execution client. This endpoint MUST be provided for an execution client which is run on your own. IT'S NOT VALID TO USE INFURA OR ANY SERVICE PROVIDER.
 
-      - Geth `http://geth.dappnode:8545` - [Install link](http://my.dappnode/#/installer/geth.dnp.dappnode.eth)
+      - Geth `http://geth.dappnode:8551` - [Install link](http://my.dappnode/#/installer/geth.dnp.dappnode.eth)
 
-      - Nethermind `http://nethermind.public.dappnode:8545` - [Install link](http://my.dappnode/#/installer/nethermind.public.dappnode.eth)
+      - Nethermind `http://nethermind.public.dappnode:8551` - [Install link](http://my.dappnode/#/installer/nethermind.public.dappnode.eth)
 
       - Remote node (example URL) `https://remote-node-provider.io` - Not an option with the upcoming merge.
