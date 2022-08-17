@@ -18,4 +18,6 @@ exec -c beacon-chain \
   --http-web3provider=$HTTP_WEB3PROVIDER \
   --grpc-gateway-port=3500 \
   --grpc-gateway-corsdomain=$CORSDOMAIN \
+  --p2p-tcp-port=$P2P_TCP_PORT \
+  --p2p-udp-port=$P2P_UDP_PORT \
   $EXTRA_OPTS
