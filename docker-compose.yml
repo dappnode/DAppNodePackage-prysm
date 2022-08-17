@@ -14,7 +14,9 @@ services:
     restart: unless-stopped
     environment:
       HTTP_WEB3PROVIDER: "http://geth.dappnode:8545"
+      CHECKPOINT_SYNC_URL: ""
       CORSDOMAIN: "http://prysm.dappnode"
+      WEB3_BACKUP: ""
       P2P_TCP_PORT: 13103
       P2P_UDP_PORT: 12103
       EXTRA_OPTS: ""
@@ -28,10 +30,12 @@ services:
       - "validator-data:/root/"
     restart: unless-stopped
     environment:
+      LOG_TYPE: INFO
       BEACON_RPC_PROVIDER: "beacon-chain.prysm.dappnode:4000"
       BEACON_RPC_GATEWAY_PROVIDER: "beacon-chain.prysm.dappnode:3500"
       GRAFFITI: validating_from_DAppNode
       EXTRA_OPTS: ""
+      FEE_RECIPIENT_ADDRESS: ""
 volumes:
   beacon-chain-data: {}
   validator-data: {}
