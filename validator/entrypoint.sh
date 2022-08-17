@@ -56,8 +56,6 @@ exec -c validator --mainnet \
     --grpc-gateway-port="$VALIDATOR_PORT" \
     --grpc-gateway-corsdomain=http://0.0.0.0:"$VALIDATOR_PORT" \
     --graffiti="$GRAFFITI" \
-    --p2p-tcp-port=$P2P_TCP_PORT \
-    --p2p-udp-port=$P2P_UDP_PORT \
     --suggested-fee-recipient="${FEE_RECIPIENT_ADDRESS}" \
     --web \
     --accept-terms-of-use \
