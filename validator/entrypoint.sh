@@ -50,6 +50,8 @@ exec -c validator \
   --wallet-password-file=/root/.eth2wallets/wallet-password.txt \
   --write-wallet-password-on-web-onboarding \
   --graffiti="$GRAFFITI" \
+  --p2p-tcp-port=$P2P_TCP_PORT \
+  --p2p-udp-port=$P2P_UDP_PORT \
   --web \
   --grpc-gateway-host=0.0.0.0 \
   --grpc-gateway-port=80 \
