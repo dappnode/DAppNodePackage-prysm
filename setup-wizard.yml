@@ -29,7 +29,7 @@ fields:
     title: Add a backup web3 provider
     description: >-
       It's a good idea to add a backup web3 provider in case your main one goes down. For example, if your primary EL client is a local Geth, but you want to use Infura as a backup.
-      Get your web3 backup from [infura](https://infura.io/) (i.e https://XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX@eth2-beacon.infura.io)
+      Get your web3 backup from [infura](https://infura.io/) (i.e https://mainnet.infura.io/v3/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx)
     required: false
   - id: checkpointSyncUrl
     target:
