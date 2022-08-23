@@ -13,12 +13,13 @@ services:
       - "12103:12103/udp"
     restart: unless-stopped
     environment:
+      P2P_TCP_PORT: 13103
+      P2P_UDP_PORT: 12103
+      HTTP_ENGINE: "http://geth.dappnode:8551"
       HTTP_WEB3PROVIDER: "http://geth.dappnode:8545"
       CHECKPOINT_SYNC_URL: ""
       CORSDOMAIN: "http://prysm.dappnode"
       WEB3_BACKUP: ""
-      P2P_TCP_PORT: 13103
-      P2P_UDP_PORT: 12103
       EXTRA_OPTS: ""
   validator:
     image: "validator.prysm.dnp.dappnode.eth:1.0.0"

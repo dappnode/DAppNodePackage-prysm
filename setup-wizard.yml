@@ -9,18 +9,21 @@ fields:
     maxLength: 32
     description: >-
       Add a string to your proposed blocks, which will be seen on the block explorer
-  - id: HTTP_WEB3PROVIDER
+  - id: HTTP_ENGINE
+    required: true
     target:
       type: environment
-      name: HTTP_WEB3PROVIDER
+      name: HTTP_ENGINE
       service: beacon-chain
     title: Execution Client endpoint
     description: >-
+      The consensus client (Prysm,Lighthouse, Nimbus and Teku) requires to have access to an execution client to receive the execution payload by using Engine api of the execution client. This endpoint MUST be provided for an execution client which is run on your own. IT'S NOT VALID TO USE INFURA OR ANY SERVICE PROVIDER.
+
+      - Geth `http://geth.dappnode:8551` - [Install link](http://my.dappnode/#/installer/geth.dnp.dappnode.eth)
+
+      - Nethermind `http://nethermind.public.dappnode:8551` - [Install link](http://my.dappnode/#/installer/nethermind.public.dappnode.eth)
+
       Consensus clients require access to an execution client. 
-
-      - Geth - `http://geth.dappnode:8545` - [Install link](http://my.dappnode/#/installer/geth.dnp.dappnode.eth)
-
-      - Nethermind - `http://nethermind.public.dappnode:8545` - [Install link](http://my.dappnode/#/installer/nethermind.public.dappnode.eth)
   - id: web3Backup
     target:
       type: environment
