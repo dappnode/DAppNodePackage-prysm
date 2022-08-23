@@ -20,8 +20,6 @@ services:
       CHECKPOINT_SYNC_URL: ""
       CORSDOMAIN: "http://prysm.dappnode"
       WEB3_BACKUP: ""
-      P2P_TCP_PORT: 13103
-      P2P_UDP_PORT: 12103
       EXTRA_OPTS: ""
   validator:
     image: "validator.prysm.dnp.dappnode.eth:1.0.0"
