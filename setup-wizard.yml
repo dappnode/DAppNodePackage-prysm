@@ -15,8 +15,7 @@ fields:
       type: environment
       name: HTTP_ENGINE
       service: beacon-chain
-    title: Execution Layer Node URL
-    required: true
+    title: Execution Client endpoint
     description: >-
       The consensus client (Prysm,Lighthouse, Nimbus and Teku) requires to have access to an execution client to receive the execution payload by using Engine api of the execution client. This endpoint MUST be provided for an execution client which is run on your own. IT'S NOT VALID TO USE INFURA OR ANY SERVICE PROVIDER.
 
@@ -24,4 +23,35 @@ fields:
 
       - Nethermind `http://nethermind.public.dappnode:8551` - [Install link](http://my.dappnode/#/installer/nethermind.public.dappnode.eth)
 
-      - Remote node (example URL) `https://remote-node-provider.io` - Not an option with the upcoming merge.
+      Consensus clients require access to an execution client. 
+  - id: web3Backup
+    target:
+      type: environment
+      name: WEB3_BACKUP
+      service: beacon-chain
+    title: Add a backup web3 provider
+    description: >-
+      It's a good idea to add a backup web3 provider in case your main one goes down. For example, if your primary EL client is a local Geth, but you want to use Infura as a backup.
+      Get your web3 backup from [infura](https://infura.io/) (i.e https://mainnet.infura.io/v3/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx)
+    required: false
+  - id: checkpointSyncUrl
+    target:
+      type: environment
+      name: CHECKPOINT_SYNC_URL
+      service: beacon-chain
+    title: Checkpoint for fast sync
+    description: >-
+      To get Prysm up and running in only a few minutes, you can start Prysm from a recent finalized checkpoint state rather than syncing from genesis. This is substantially **faster** and consumes **less resources** than syncing from genesis, while still providing all the same features. Be sure you are using a trusted node for the fast sync. Check [Prysm docs](https://docs.prylabs.network/docs/prysm-usage/parameters/)
+      Use the dappnode official endpoint `https://checkpoint-sync.dappnode.io/` or get your checkpoint sync from [infura](https://infura.io/) (i.e https://XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX@eth2-beacon-mainnet.infura.io)
+    required: false
+  - id: feeRecipientAddress
+    target:
+      type: environment
+      name: FEE_RECIPIENT_ADDRESS
+      service: validator
+    title: Fee Recipient Address
+    description: >-
+      Fee Recipient is a feature that lets you specify a priority fee recipient address on your validator client instance and beacon node. After The Merge, execution clients will begin depositing priority fees into this address whenever your validator client proposes a new block.
+    required: true
+    pattern: "^0x[a-fA-F0-9]{40}$"
+    patternErrorMessage: Must be a valid address (0x1fd16a...)
