@@ -20,6 +20,7 @@ services:
       CHECKPOINT_SYNC_URL: ""
       CORSDOMAIN: "http://prysm.dappnode"
       WEB3_BACKUP: ""
+      MEV_BOOST: ""
       EXTRA_OPTS: ""
   validator:
     image: "validator.prysm.dnp.dappnode.eth:1.0.0"
@@ -35,6 +36,7 @@ services:
       BEACON_RPC_PROVIDER: "beacon-chain.prysm.dappnode:4000"
       BEACON_RPC_GATEWAY_PROVIDER: "beacon-chain.prysm.dappnode:3500"
       GRAFFITI: validating_from_DAppNode
+      MEV_BOOST: ""
       EXTRA_OPTS: ""
       FEE_RECIPIENT_ADDRESS: ""
 volumes:
