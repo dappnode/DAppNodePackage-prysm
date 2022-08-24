@@ -23,7 +23,7 @@ fields:
 
       - Nethermind `http://nethermind.public.dappnode:8551` - [Install link](http://my.dappnode/#/installer/nethermind.public.dappnode.eth)
 
-      Consensus clients require access to an execution client. 
+      Consensus clients require access to an execution client.
   - id: web3Backup
     target:
       type: environment
@@ -55,3 +55,15 @@ fields:
     required: true
     pattern: "^0x[a-fA-F0-9]{40}$"
     patternErrorMessage: Must be a valid address (0x1fd16a...)
+  - id: mev-boost
+    target:
+      type: environment
+      name: MEV_BOOST
+      service: [beacon-chain, validator]
+    title: MEV Boost
+    description: >-
+      Maximal extractable value (MEV) refers to the maximum value that can be extracted from block production in excess of the standard block reward and gas fees by including, excluding, and changing the order of transactions in a block.
+    enum:
+      - Yes
+      - No
+    required: true
