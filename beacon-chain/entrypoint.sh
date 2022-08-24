@@ -8,6 +8,10 @@ if [[ -n $CHECKPOINT_SYNC_URL ]]; then
   EXTRA_OPTS="--checkpoint-sync-url=${CHECKPOINT_SYNC_URL} --genesis-beacon-api-url=${CHECKPOINT_SYNC_URL} ${EXTRA_OPTS}"
 fi
 
+if [[ $MEV_BOOST == "yes" ]]; then
+  EXTRA_OPTS="--http-mev-relay=http://mev-boost:18550 ${EXTRA_OPTS}"
+fi
+
 exec -c beacon-chain \
   --datadir=/data \
   --rpc-host=0.0.0.0 \

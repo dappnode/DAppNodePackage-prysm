@@ -45,6 +45,10 @@ else
     fi
 fi
 
+if [[ $MEV_BOOST == "yes" ]]; then
+  EXTRA_OPTS="--enable-builder ${EXTRA_OPTS}"
+fi
+
 exec -c validator --mainnet \
     --datadir="$WALLET_DIR" \
     --wallet-dir="$WALLET_DIR" \
