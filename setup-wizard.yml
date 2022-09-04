@@ -15,15 +15,17 @@ fields:
       type: environment
       name: HTTP_ENGINE
       service: beacon-chain
-    title: Execution Client endpoint
+    title: Execution Client Endpoint
     description: >-
-      The consensus client (Prysm,Lighthouse, Nimbus and Teku) requires to have access to an execution client to receive the execution payload by using Engine api of the execution client. This endpoint MUST be provided for an execution client which is run on your own. IT'S NOT VALID TO USE INFURA OR ANY SERVICE PROVIDER.
+      The Consensus Clients (Lighthouse, Nimbus, Prysm, and Teku) require access to an Execution Client to receive the execution payload by using the Engine API of the Execution Client. This endpoint MUST be provided for an Execution Client which is run on your own locally. IT IS NO LONGER POSSIBLE TO USE INFURA OR ANY SERVICE PROVIDER.
 
       - Geth `http://geth.dappnode:8551` - [Install link](http://my.dappnode/#/installer/geth.dnp.dappnode.eth)
 
       - Nethermind `http://nethermind.public.dappnode:8551` - [Install link](http://my.dappnode/#/installer/nethermind.public.dappnode.eth)
+      
+      - Erigon `http://erigon.dappnode:8551` - [Install link](http://my.dappnode/#/installer/erigon.dnp.dappnode.eth)
 
-      Consensus clients require access to an execution client.
+      Consensus Clients require access to an execution client in order to operate.
   - id: checkpointSyncUrl
     target:
       type: environment
@@ -32,7 +34,7 @@ fields:
     title: Checkpoint for fast sync
     description: >-
       To get Prysm up and running in only a few minutes, you can start Prysm from a recent finalized checkpoint state rather than syncing from genesis. This is substantially **faster** and consumes **less resources** than syncing from genesis, while still providing all the same features. Be sure you are using a trusted node for the fast sync. Check [Prysm docs](https://docs.prylabs.network/docs/prysm-usage/parameters/)
-      Use the dappnode official endpoint `https://checkpoint-sync.dappnode.io/` or get your checkpoint sync from [infura](https://infura.io/) (i.e https://XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX@eth2-beacon-mainnet.infura.io)
+      Use the Dappnode Official Checkpoint Sync Endpoint `https://checkpoint-sync.dappnode.io/` or get your Checkpoint Sync Endpoint from [Infura](https://infura.io/) (i.e https://XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX@eth2-beacon-mainnet.infura.io)
     required: false
   - id: feeRecipientAddress
     target:
