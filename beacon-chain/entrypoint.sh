@@ -15,7 +15,8 @@ exec -c beacon-chain \
   --mainnet \
   --grpc-gateway-host=0.0.0.0 \
   --monitoring-host=0.0.0.0 \
-  --http-web3provider=$HTTP_WEB3PROVIDER \
+  --execution-endpoint=$HTTP_ENGINE \
+  --jwt-secret=/jwtsecret \
   --grpc-gateway-port=3500 \
   --grpc-gateway-corsdomain=$CORSDOMAIN \
   --p2p-tcp-port=$P2P_TCP_PORT \

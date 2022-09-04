@@ -20,4 +20,7 @@ RUN apt update && \
 
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 
+COPY jwtsecret.hex /jwtsecret
+
 ENTRYPOINT [ "/usr/local/bin/entrypoint.sh" ]
+
