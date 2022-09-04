@@ -1,3 +1,4 @@
-## Welcome to your eth2 client Prysm:
+## Welcome to the Merge Ready Consensus Client: Prysm
 
-- Upload your keystores in the [web3signer-ui](http://ui.web3signer.dappnode?signer_url=http://web3signer.web3signer.dappnode:9000) (do not have web3singer yet? install it [here](http://my.dappnode/#/installer/web3signer.dnp.dappnode.eth))
+- Your keystores are now managed in the [web3signer-ui](http://ui.web3signer.dappnode?signer_url=http://web3signer.web3signer.dappnode:9000) 
+- (Don't have the web3signer yet? Install it [here](http://my.dappnode/#/installer/web3signer.dnp.dappnode.eth))
