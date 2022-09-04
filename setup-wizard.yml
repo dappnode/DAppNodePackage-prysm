@@ -19,13 +19,19 @@ fields:
     description: >-
       The Consensus Clients (Lighthouse, Nimbus, Prysm, and Teku) require access to an Execution Client to receive the execution payload by using the Engine API of the Execution Client. This endpoint MUST be provided for an Execution Client which is run on your own locally. IT IS NO LONGER POSSIBLE TO USE INFURA OR ANY SERVICE PROVIDER.
 
-      - Geth `http://geth.dappnode:8551` - [Install link](http://my.dappnode/#/installer/geth.dnp.dappnode.eth)
+      - Geth [Install link](http://my.dappnode/#/installer/geth.dnp.dappnode.eth)
 
-      - Nethermind `http://nethermind.public.dappnode:8551` - [Install link](http://my.dappnode/#/installer/nethermind.public.dappnode.eth)
-      
-      - Erigon `http://erigon.dappnode:8551` - [Install link](http://my.dappnode/#/installer/erigon.dnp.dappnode.eth)
+      - Nethermind [Install link](http://my.dappnode/#/installer/nethermind.public.dappnode.eth)
 
-      Consensus Clients require access to an execution client in order to operate.
+      - Erigon [Install link](http://my.dappnode/#/installer/erigon.dnp.dappnode.eth)
+
+
+      Consensus Clients require access to an execution client in order to operate. 
+    enum:
+      - "http://geth.dappnode:8551"
+      - "http://nethermind.public.dappnode:8551"
+      - "http://erigon.dappnode:8551"
+
   - id: checkpointSyncUrl
     target:
       type: environment
