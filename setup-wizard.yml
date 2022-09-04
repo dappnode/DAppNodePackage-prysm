@@ -23,17 +23,7 @@ fields:
 
       - Nethermind `http://nethermind.public.dappnode:8551` - [Install link](http://my.dappnode/#/installer/nethermind.public.dappnode.eth)
 
-      Consensus clients require access to an execution client. 
-  - id: web3Backup
-    target:
-      type: environment
-      name: WEB3_BACKUP
-      service: beacon-chain
-    title: Add a backup web3 provider
-    description: >-
-      It's a good idea to add a backup web3 provider in case your main one goes down. For example, if your primary EL client is a local Geth, but you want to use Infura as a backup.
-      Get your web3 backup from [infura](https://infura.io/) (i.e https://mainnet.infura.io/v3/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx)
-    required: false
+      Consensus clients require access to an execution client.
   - id: checkpointSyncUrl
     target:
       type: environment
