@@ -17,7 +17,9 @@ fields:
       service: beacon-chain
     title: Execution Client Endpoint
     description: >-
-      The Consensus Clients (Lighthouse, Nimbus, Prysm, and Teku) require access to an Execution Client to receive the execution payload by using the Engine API of the Execution Client. This endpoint MUST be provided for an Execution Client which is run on your own locally. IT IS NO LONGER POSSIBLE TO USE INFURA OR ANY SERVICE PROVIDER.
+      The Consensus Clients (Lighthouse, Nimbus, Prysm, and Teku) require access to an Execution Client to receive the execution payload by using the Engine API of the Execution Client.
+      This endpoint MUST be provided for an Execution Client that is run locally. 
+      IT IS NO LONGER POSSIBLE TO USE INFURA OR ANY OTHER SERVICE PROVIDER AS YOUR EXECUTION CLIENT.
 
       - Geth [Install link](http://my.dappnode/#/installer/geth.dnp.dappnode.eth)
 
@@ -26,12 +28,13 @@ fields:
       - Erigon [Install link](http://my.dappnode/#/installer/erigon.dnp.dappnode.eth)
 
 
-      Consensus Clients require access to an execution client in order to operate. 
+      Consensus Clients require access to an Execution Client in order to operate properly.
+      Be sure to only select an Execution Client below that you have already installed.
     enum:
       - "http://geth.dappnode:8551"
       - "http://nethermind.public.dappnode:8551"
       - "http://erigon.dappnode:8551"
-
+      
   - id: checkpointSyncUrl
     target:
       type: environment
@@ -39,17 +42,18 @@ fields:
       service: beacon-chain
     title: Checkpoint for fast sync
     description: >-
-      To get Prysm up and running in only a few minutes, you can start Prysm from a recent finalized checkpoint state rather than syncing from genesis. This is substantially **faster** and consumes **less resources** than syncing from genesis, while still providing all the same features. Be sure you are using a trusted node for the fast sync. Check [Prysm docs](https://docs.prylabs.network/docs/prysm-usage/parameters/)
-      Use the Dappnode Official Checkpoint Sync Endpoint `https://checkpoint-sync.dappnode.io/` or get your Checkpoint Sync Endpoint from [Infura](https://infura.io/) (i.e https://XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX@eth2-beacon-mainnet.infura.io)
+      To get Prysm up and running in only a few minutes, you can start Prysm from a recent finalized checkpoint state rather than syncing from genesis. This is substantially **faster** and consumes **less resources** than syncing from genesis, while still providing all the same features. Be sure you are using a trusted node for the fast sync. Check the [Prysm docs](https://docs.prylabs.network/docs/prysm-usage/checkpoint-sync) for more information.
+      Use the dappnode official endpoint `https://checkpoint-sync.dappnode.io` or get your checkpoint sync from [Infura](https://infura.io/) (i.e https://XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX@eth2-beacon-chain.infura.io)
+      *Note - If you are going to provide your own checkpoint sync endpoint, make sure you do not use a slash `/` at the end of the URL.*
     required: false
   - id: feeRecipientAddress
     target:
       type: environment
       name: FEE_RECIPIENT_ADDRESS
-      service: validator
+      service: [beacon-chain, validator]
     title: Fee Recipient Address
     description: >-
-      Fee Recipient is a feature that lets you specify a priority fee recipient address on your validator client instance and beacon node. After The Merge, execution clients will begin depositing priority fees into this address whenever your validator client proposes a new block.
+      Fee Recipient is a feature that lets you specify a priority fee recipient address on your validator client instance and beacon node. Make sure this is an address you control. After The Merge, Execution Clients will begin depositing priority fees into this address whenever your validator proposes a new block.
     required: true
     pattern: "^0x[a-fA-F0-9]{40}$"
     patternErrorMessage: Must be a valid address (0x1fd16a...)
