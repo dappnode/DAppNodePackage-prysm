@@ -15,7 +15,6 @@ services:
     environment:
       P2P_TCP_PORT: 13103
       P2P_UDP_PORT: 12103
-      CONFIG_MODE: basic
       HTTP_ENGINE: ""
       CHECKPOINT_SYNC_URL: ""
       CORSDOMAIN: "http://prysm.dappnode"
