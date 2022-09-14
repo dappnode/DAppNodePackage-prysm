@@ -1,14 +1,17 @@
 version: "2"
 fields:
-  - id: GRAFFITI
+  - id: config_mode
+    title: Execution Client Selection Configuration Mode
+    description: >-
+      Advanced and Development Use Only: Please only enable this option if you are confident you know what you are doing, if you have any doubts, please use the basic setting.
+      Set this to **"advanced"** to pass in an arbitrary Execution Client Engine-API or leave on **basic** to choose one below.
     target:
       type: environment
-      name: GRAFFITI
-      service: validator
-    title: Graffiti
-    maxLength: 32
-    description: >-
-      Add a string to your proposed blocks, which will be seen on the block explorer
+      name: CONFIG_MODE
+      service: beacon-chain
+    enum:
+      - "basic"
+      - "advanced"
   - id: HTTP_ENGINE
     required: true
     target:
@@ -34,7 +37,21 @@ fields:
       - "http://geth.dappnode:8551"
       - "http://nethermind.public.dappnode:8551"
       - "http://erigon.dappnode:8551"
-        
+    if: { "config_mode": { "enum": ["basic"] } }    
+  - id: HTTP_ENGINE
+    required: true
+    target:
+      type: environment
+      name: HTTP_ENGINE
+      service: beacon-chain
+    title: Execution Client Endpoint
+    description: >-
+      The Consensus Clients (Lighthouse, Nimbus, Prysm, and Teku) require access to an Execution Client to receive the execution payload by using the Engine API of the Execution Client.   
+      This endpoint MUST be provided for an Execution Client that is run locally.   
+      IT IS NO LONGER POSSIBLE TO USE INFURA OR ANY OTHER SERVICE PROVIDER AS YOUR EXECUTION CLIENT.   
+      Consensus Clients require access to an Execution Client in order to operate properly.   
+      You can find the Engine API in the Execution Client's Package Info.
+    if: { "config_mode": { "enum": ["advanced"] } }        
   - id: checkpointSyncUrl
     target:
       type: environment
