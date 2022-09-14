@@ -40,6 +40,20 @@ fields:
       - "http://nethermind.public.dappnode:8551"
       - "http://erigon.dappnode:8551"
     if: { "config_mode": { "enum": ["basic"] } }
+  - id: HTTP_ENGINE
+    required: true
+    target:
+      type: environment
+      name: HTTP_ENGINE
+      service: beacon-chain
+    title: Execution Client Endpoint
+    description: >-
+      The Consensus Clients (Lighthouse, Nimbus, Prysm, and Teku) require access to an Execution Client to receive the execution payload by using the Engine API of the Execution Client.   
+      This endpoint MUST be provided for an Execution Client that is run locally.   
+      IT IS NO LONGER POSSIBLE TO USE INFURA OR ANY OTHER SERVICE PROVIDER AS YOUR EXECUTION CLIENT.   
+      Consensus Clients require access to an Execution Client in order to operate properly.   
+      You can find the Engine API in the Execution Client's Package Info.
+    if: { "config_mode": { "enum": ["advanced"] } }    
   - id: GRAFFITI
     target:
       type: environment
