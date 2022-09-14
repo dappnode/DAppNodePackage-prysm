@@ -39,6 +39,7 @@ fields:
       - "http://geth.dappnode:8551"
       - "http://nethermind.public.dappnode:8551"
       - "http://erigon.dappnode:8551"
+    if: { "config_mode": { "enum": ["basic"] } }
   - id: GRAFFITI
     target:
       type: environment
