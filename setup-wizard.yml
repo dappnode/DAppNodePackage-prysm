@@ -9,24 +9,51 @@ fields:
     maxLength: 32
     description: >-
       Add a string to your proposed blocks, which will be seen on the block explorer
-  - id: HTTP_WEB3PROVIDER
+  - id: HTTP_ENGINE
+    required: true
     target:
       type: environment
-      name: HTTP_WEB3PROVIDER
+      name: HTTP_ENGINE
       service: beacon-chain
-    title: Eth1.x node URL
-    required: true
+    title: Execution Client Endpoint
     description: >-
-      Your Beacon chain node must have access to a syncronized Eth1.x mainnet node. 
-      If you have not already, make sure to install and sync an Eth1.x node of your choice.
-      Then, input the URL of the node that you wish to use or a remote one:
+      The Consensus Clients (Lighthouse, Nimbus, Prysm, and Teku) require access to an Execution Client to receive the execution payload by using the Engine API of the Execution Client.
+      This endpoint MUST be provided for an Execution Client that is run locally. 
+      IT IS NO LONGER POSSIBLE TO USE INFURA OR ANY OTHER SERVICE PROVIDER AS YOUR EXECUTION CLIENT.
 
-      - Geth `http://geth.dappnode:8545` - [Install link](http://my.dappnode/#/installer/geth.dnp.dappnode.eth)
+      - Geth [Install link](http://my.dappnode/#/installer/geth.dnp.dappnode.eth)
 
-      - Turbo Geth `http://turbo-geth.dappnode:8545` - [Install link](http://my.dappnode/#/installer/turbo-geth.dnp.dappnode)
+      - Nethermind [Install link](http://my.dappnode/#/installer/nethermind.public.dappnode.eth)
 
-      - OpenEthereum `http://openethereum.dappnode:8545` - [Install link](http://my.dappnode/#/installer/openethereum.dnp.dappnode.eth)
+      - Erigon [Install link](http://my.dappnode/#/installer/erigon.dnp.dappnode.eth)
 
-      - Nethermind `http://nethermind.public.dappnode:8545` - [Install link](http://my.dappnode/#/installer/nethermind.public.dappnode.eth)
 
-      - Remote node (example URL) `https://remote-node-provider.io`
+      Consensus Clients require access to an Execution Client in order to operate properly.
+      Be sure to only select an Execution Client below that you have already installed.
+    enum:
+      - "http://geth.dappnode:8551"
+      - "http://nethermind.public.dappnode:8551"
+      - "http://erigon.dappnode:8551"
+      
+  - id: checkpointSyncUrl
+    target:
+      type: environment
+      name: CHECKPOINT_SYNC_URL
+      service: beacon-chain
+    title: Checkpoint for fast sync
+    description: >-
+      To get Prysm up and running in only a few minutes, you can start Prysm from a recent finalized checkpoint state rather than syncing from genesis. This is substantially **faster** and consumes **less resources** than syncing from genesis, while still providing all the same features. Be sure you are using a trusted node for the fast sync. Check the [Prysm docs](https://docs.prylabs.network/docs/prysm-usage/checkpoint-sync) for more information.
+      Use the dappnode official endpoint `https://checkpoint-sync.dappnode.io` or get your checkpoint sync from [Infura](https://infura.io/) (i.e https://XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX@eth2-beacon-chain.infura.io)
+      *Note - If you are going to provide your own checkpoint sync endpoint, make sure you do not use a slash `/` at the end of the URL.*
+    required: false
+  - id: feeRecipientAddress
+    target:
+      type: environment
+      name: FEE_RECIPIENT_ADDRESS
+      service: validator
+    title: Fee Recipient Address
+    description: >-
+      Fee Recipient is a feature that lets you specify a priority fee recipient address on your validator client instance and beacon node. Make sure this is an address you control. After The Merge, Execution Clients will begin depositing priority fees into this address whenever your validator proposes a new block.
+    required: true
+    pattern: "^0x[a-fA-F0-9]{40}$"
+    patternErrorMessage: Must be a valid address (0x1fd16a...)

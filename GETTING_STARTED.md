@@ -1,5 +1,5 @@
-- **Is your first login?** use the link with the token attached below. For more information and a full guide on the new method of accessing the Prysm Dashboard visit this forum [post](https://forum.dappnode.io/t/how-to-access-the-prysm-prater-webui-in-v0-1-5-upstream-v2-0-3-and-above/1304)
+## Welcome to the Merge Ready Consensus Client: Prysm
 
-- If you have already logged in with the token go to [prysm.dappnode](http://prysm.dappnode/)
-
-- If you want to have the complete dashboard with all the metrics you will have to install [metrics-tools](http://my.dappnode/#/installer/metrics-tools.dnp.dappnode.eth) (Grafana dashboard thanks to amazing work of [metanull-operator](https://github.com/metanull-operator/eth2-grafana))
+- Your keystores should now managed in the [web3signer-ui](http://ui.web3signer.dappnode?signer_url=http://web3signer.web3signer.dappnode:9000) 
+- Don't have the web3signer installed yet? You may not have migrated to the mainnet-multiclient, which is necessary for the Merge. It can be manually installed [here](http://my.dappnode/#/installer/web3signer.web3signer.dnp.dappnode.eth)
+- With this update the Execution Layer Client must be selected in the Consensus Client, and the chosen Consensus Client is selected in the [Web3Signer](http://my.dappnode/#/packages/web3signer.dnp.dappnode.eth/config).
