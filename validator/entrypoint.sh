@@ -1,6 +1,5 @@
 #!/bin/bash
 
-CLIENT="prysm"
 export NETWORK="mainnet"
 VALIDATOR_PORT=3500
 export WEB3SIGNER_API="http://web3signer.web3signer.dappnode:9000"
@@ -28,20 +27,15 @@ fi
 # Remove manual migration if older than 20 days
 find /root -type d -name manual_migration -mtime +20 -exec rm -rf {} +
 
-WEB3SIGNER_RESPONSE=$(curl -s -w "%{http_code}" -X GET -H "Content-Type: application/json" -H "Host: validator.${CLIENT}.dappnode" "${WEB3SIGNER_API}/eth/v1/keystores")
-HTTP_CODE=${WEB3SIGNER_RESPONSE: -3}
-CONTENT=$(echo "${WEB3SIGNER_RESPONSE}" | head -c-4)
-
-if [ "${HTTP_CODE}" == "403" ] && [ "${CONTENT}" == "*Host not authorized*" ]; then
-    echo "${CLIENT} is not authorized to access the Web3Signer API. Start without pubkeys"
-elif [ "$HTTP_CODE" != "200" ]; then
-    echo "Failed to get keystores from web3signer, HTTP code: ${HTTP_CODE}, content: ${CONTENT}"
-else
-    PUBLIC_KEYS_WEB3SIGNER=($(echo "${CONTENT}" | jq -r 'try .data[].validating_pubkey'))
-    if [ ${#PUBLIC_KEYS_WEB3SIGNER[@]} -gt 0 ]; then
-        PUBLIC_KEYS_COMMA_SEPARATED=$(echo "${PUBLIC_KEYS_WEB3SIGNER[*]}" | tr ' ' ',')
-        echo "found validators in web3signer, starting vc with pubkeys: ${PUBLIC_KEYS_COMMA_SEPARATED}"
-        EXTRA_OPTS="--validators-external-signer-public-keys=${PUBLIC_KEYS_COMMA_SEPARATED} ${EXTRA_OPTS}"
+# MEVBOOST: https://hackmd.io/@prysmaticlabs/BJeinxFsq
+if [ -n "$_DAPPNODE_GLOBAL_MEVBOOST_MAINNET" ] && [ "$_DAPPNODE_GLOBAL_MEVBOOST_MAINNET" == "true" ]; then
+    echo "MEVBOOST is enabled"
+    MEVBOOST_URL="http://mev-boost.mev-boost.dappnode:18550"
+    if curl --retry 5 --retry-delay 5 --retry-all-errors "${MEVBOOST_URL}"; then
+        EXTRA_OPTS="--enable-builder ${EXTRA_OPTS}"
+    else
+        echo "MEVBOOST is enabled but ${MEVBOOST_URL} is not reachable"
+        curl -X POST -G 'http://my.dappnode/notification-send' --data-urlencode 'type=danger' --data-urlencode title="${MEVBOOST_URL} is not available" --data-urlencode 'body=Make sure the mevboost is available and running'
     fi
 fi
 
@@ -59,4 +53,5 @@ exec -c validator --mainnet \
     --suggested-fee-recipient="${FEE_RECIPIENT_ADDRESS}" \
     --web \
     --accept-terms-of-use \
+    --enable-doppelganger \
     ${EXTRA_OPTS}
