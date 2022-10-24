@@ -24,6 +24,8 @@ fields:
       This endpoint MUST be provided for an Execution Client that is run locally. 
       IT IS NO LONGER POSSIBLE TO USE INFURA OR ANY OTHER SERVICE PROVIDER AS YOUR EXECUTION CLIENT.
 
+      - Besu [Install Link](http://my.dappnode/#installer/besu.public.dappnode.eth)
+      
       - Geth [Install link](http://my.dappnode/#/installer/geth.dnp.dappnode.eth)
 
       - Nethermind [Install link](http://my.dappnode/#/installer/nethermind.public.dappnode.eth)
@@ -37,6 +39,7 @@ fields:
       - "http://geth.dappnode:8551"
       - "http://nethermind.public.dappnode:8551"
       - "http://erigon.dappnode:8551"
+      - "http://besu.public.dappnode:8551"
     if: { "config_mode": { "enum": ["basic"] } }    
   - id: HTTP_ENGINE
     required: true
@@ -60,7 +63,7 @@ fields:
     title: Checkpoint for fast sync
     description: >-
       To get Prysm up and running in only a few minutes, you can start Prysm from a recent finalized checkpoint state rather than syncing from genesis. This is substantially **faster** and consumes **less resources** than syncing from genesis, while still providing all the same features. Be sure you are using a trusted node for the fast sync. Check the [Prysm docs](https://docs.prylabs.network/docs/prysm-usage/checkpoint-sync) for more information.
-      Use the dappnode official endpoint `https://checkpoint-sync.dappnode.io` or get your checkpoint sync from [Infura](https://infura.io/) (i.e https://XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX@eth2-beacon-chain.infura.io)
+      Use the Dappnode official endpoint `https://checkpoint-sync.dappnode.io`.
       *Note - If you are going to provide your own checkpoint sync endpoint, make sure you do not use a slash `/` at the end of the URL.*
     required: false
   - id: feeRecipientAddress
