@@ -11,7 +11,7 @@ case $_DAPPNODE_GLOBAL_EXECUTION_CLIENT_MAINNET in
   HTTP_ENGINE="http://geth.dappnode:8551"
   ;;
 "nethermind.public.dappnode.eth")
-  HTTP_ENGINE="http://nethermind.dappnode:8551"
+  HTTP_ENGINE="http://nethermind.public.dappnode:8551"
   ;;
 "erigon.dnp.dappnode.eth")
   HTTP_ENGINE="http://erigon.dappnode:8551"
