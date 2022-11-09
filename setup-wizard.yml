@@ -1,10 +1,6 @@
 version: "2"
 fields:
-  - id: config_mode
-    title: Execution Client Selection Configuration Mode
-    description: >-
-      Advanced and Development Use Only: Please only enable this option if you are confident you know what you are doing, if you have any doubts, please use the basic setting.
-      Set this to **"advanced"** to pass in an arbitrary Execution Client Engine-API or leave on **basic** to choose one below.
+  - id: GRAFFITI
     target:
       type: environment
       name: GRAFFITI
