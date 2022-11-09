@@ -16,8 +16,8 @@ case $_DAPPNODE_GLOBAL_EXECUTION_CLIENT_MAINNET in
 "erigon.dnp.dappnode.eth")
   HTTP_ENGINE="http://erigon.dappnode:8551"
   ;;
-"besu.dnp.dappnode.eth")
-  HTTP_ENGINE="http://besu.dappnode:8551"
+"besu.public.dappnode.eth")
+  HTTP_ENGINE="http://besu.public.dappnode:8551"
   ;;
 *)
   echo "Unknown value for _DAPPNODE_GLOBAL_EXECUTION_CLIENT_MAINNET: $_DAPPNODE_GLOBAL_EXECUTION_CLIENT_MAINNET"
