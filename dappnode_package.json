@@ -1,7 +1,7 @@
 {
   "name": "prysm.dnp.dappnode.eth",
   "version": "2.0.0",
-  "upstreamVersion": "v3.1.1",
+  "upstreamVersion": "v3.1.2",
   "upstreamRepo": "prysmaticlabs/prysm",
   "upstreamArg": "UPSTREAM_VERSION",
   "shortDescription": "Prysm mainnet ETH2.0 Beacon chain + validator",
@@ -37,7 +37,7 @@
     "featuredColor": "white"
   },
   "links": {
-    "ui": "http://prysm.dappnode/",
+    "ui": "http://ui.web3signer.dappnode/?signer_url=http://web3signer.web3signer.dappnode:9000",
     "homepage": "https://prysmaticlabs.com/",
     "readme": "https://github.com/dappnode/DAppNodePackage-prysm",
     "docs": "https://docs.prylabs.network/docs/getting-started"
