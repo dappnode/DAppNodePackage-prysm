@@ -25,6 +25,9 @@ case $_DAPPNODE_GLOBAL_EXECUTION_CLIENT_MAINNET in
   ;;
 esac
 
+apt update
+apt install -y curl
+
 # MEVBOOST: https://hackmd.io/@prysmaticlabs/BJeinxFsq
 if [ -n "$_DAPPNODE_GLOBAL_MEVBOOST_MAINNET" ] && [ "$_DAPPNODE_GLOBAL_MEVBOOST_MAINNET" == "true" ]; then
   echo "MEVBOOST is enabled"
