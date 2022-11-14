@@ -22,7 +22,7 @@
     "url": "https://github.com/dappnode/DAppNodePackage-prysm/issues"
   },
   "requirements": {
-    "minimumDappnodeVersion": "0.2.57"
+    "minimumDappnodeVersion": "0.2.60"
   },
   "backup": [
     {
@@ -42,11 +42,18 @@
     "readme": "https://github.com/dappnode/DAppNodePackage-prysm",
     "docs": "https://docs.prylabs.network/docs/getting-started"
   },
-  "dependencies": {
-    "web3signer.dnp.dappnode.eth": "latest"
-  },
   "warnings": {
     "onMajorUpdate": "This is a major update that enables multiclient validation on Mainnet.⚠️ BEFORE YOU START, MAKE SURE YOU HAVE A BACKUP OF THE VALIDATOR KEYS⚠️ . A new package, the web3signer, will be automatically installed and keys will be moved inside of this package. The web3signer will hold the keys and allow you to change validator clients safely. From now on, the UI to handle the keystores will be available at the web3signer package. You will be prompted to choose a validator client in the following steps; make sure you select one that is installed and synced (leave it as Prysm if you are not sure, you can change it later). Pay attention to the update and make sure the keystores are successfully relocated by checking the UI of the web3signer after the update.",
     "onRemove": "Make sure your web3signer does not have this client selected or you will stop validating! (Packages > web3signer > config > client)"
-  }
+  },
+  "globalEnvs": [
+    {
+      "envs": ["EXECUTION_CLIENT_MAINNET", "MEVBOOST_MAINNET"],
+      "services": ["beacon-chain"]
+    },
+    {
+      "envs": ["MEVBOOST_MAINNET"],
+      "services": ["validator"]
+    }
+  ]
 }
