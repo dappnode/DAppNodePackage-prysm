@@ -39,6 +39,7 @@ if [ -n "$_DAPPNODE_GLOBAL_MEVBOOST_MAINNET" ] && [ "$_DAPPNODE_GLOBAL_MEVBOOST_
     fi
 fi
 
+#Implement graffiti limit to account for non unicode characters to prevent a restart loop
 oLang=$LANG oLcAll=$LC_ALL
 LANG=C LC_ALL=C 
 graffitiString=${GRAFFITI:0:32}
