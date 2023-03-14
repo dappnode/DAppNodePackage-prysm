@@ -27,7 +27,7 @@
     "url": "https://github.com/dappnode/DAppNodePackage-prysm/issues"
   },
   "requirements": {
-    "minimumDappnodeVersion": "0.2.60"
+    "minimumDappnodeVersion": "0.2.69"
   },
   "backup": [
     {
@@ -57,7 +57,7 @@
       "services": ["beacon-chain"]
     },
     {
-      "envs": ["MEVBOOST_MAINNET"],
+      "envs": ["MEVBOOST_MAINNET", "FEE_RECIPIENT_MAINNET"],
       "services": ["validator"]
     }
   ]

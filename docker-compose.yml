@@ -33,7 +33,6 @@ services:
       BEACON_RPC_GATEWAY_PROVIDER: "beacon-chain.prysm.dappnode:3500"
       GRAFFITI: validating_from_DAppNode
       EXTRA_OPTS: ""
-      FEE_RECIPIENT_ADDRESS: ""
 volumes:
   beacon-chain-data: {}
   validator-data: {}

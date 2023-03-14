@@ -31,12 +31,15 @@ find /root -type d -name manual_migration -mtime +20 -exec rm -rf {} +
 if [ -n "$_DAPPNODE_GLOBAL_MEVBOOST_MAINNET" ] && [ "$_DAPPNODE_GLOBAL_MEVBOOST_MAINNET" == "true" ]; then
     echo "MEVBOOST is enabled"
     MEVBOOST_URL="http://mev-boost.mev-boost.dappnode:18550"
-    if curl --retry 5 --retry-delay 5 --retry-all-errors "${MEVBOOST_URL}"; then
-        EXTRA_OPTS="--enable-builder ${EXTRA_OPTS}"
-    else
-        echo "MEVBOOST is enabled but ${MEVBOOST_URL} is not reachable"
-        curl -X POST -G 'http://my.dappnode/notification-send' --data-urlencode 'type=danger' --data-urlencode title="${MEVBOOST_URL} is not available" --data-urlencode 'body=Make sure the mevboost is available and running'
-    fi
+    EXTRA_OPTS="--enable-builder ${EXTRA_OPTS}"
+fi
+
+# Chek the env FEE_RECIPIENT_MAINNET has a valid ethereum address if not set to the null address
+if [ -n "$FEE_RECIPIENT_MAINNET" ] && [[ "$FEE_RECIPIENT_MAINNET" =~ ^0x[a-fA-F0-9]{40}$ ]]; then
+    FEE_RECIPIENT_ADDRESS="$FEE_RECIPIENT_MAINNET"
+else
+    echo "FEE_RECIPIENT_MAINNET is not set or is not a valid ethereum address, setting it to the null address"
+    FEE_RECIPIENT_ADDRESS="0x0000000000000000000000000000000000000000"
 fi
 
 #Implement graffiti limit to account for non unicode characters to prevent a restart loop
