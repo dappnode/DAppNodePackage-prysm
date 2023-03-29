@@ -35,6 +35,14 @@ if [ -n "$_DAPPNODE_GLOBAL_MEVBOOST_MAINNET" ] && [ "$_DAPPNODE_GLOBAL_MEVBOOST_
   EXTRA_OPTS="--http-mev-relay=${MEVBOOST_URL} ${EXTRA_OPTS}"
 fi
 
+# Chek the env FEE_RECIPIENT_ADDRESS has a valid ethereum address if not set to the null address
+if [ -n "$FEE_RECIPIENT_ADDRESS" ] && [[ "$FEE_RECIPIENT_ADDRESS" =~ ^0x[a-fA-F0-9]{40}$ ]]; then
+    echo "FEE_RECIPIENT is valid"
+else
+    echo "FEE_RECIPIENT is not a valid ethereum address, setting it to the null address"
+    FEE_RECIPIENT_ADDRESS="0x0000000000000000000000000000000000000000"
+fi
+
 exec -c beacon-chain \
   --datadir=/data \
   --rpc-host=0.0.0.0 \
@@ -48,4 +56,5 @@ exec -c beacon-chain \
   --grpc-gateway-port=3500 \
   --grpc-gateway-corsdomain=$CORSDOMAIN \
   --jwt-secret=/jwtsecret \
+  --suggested-fee-recipient="${FEE_RECIPIENT_ADDRESS}" \
   $EXTRA_OPTS
