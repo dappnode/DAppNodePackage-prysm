@@ -18,7 +18,6 @@ services:
       CHECKPOINT_SYNC_URL: ""
       CORSDOMAIN: "http://prysm.dappnode"
       EXTRA_OPTS: ""
-      FEE_RECIPIENT_ADDRESS: ""
   validator:
     image: "validator.prysm.dnp.dappnode.eth:2.0.0"
     build:
