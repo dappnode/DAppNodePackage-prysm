@@ -62,5 +62,4 @@ exec -c beacon-chain \
   --grpc-gateway-port=3500 \
   --grpc-gateway-corsdomain=$CORSDOMAIN \
   --jwt-secret=/jwtsecret \
-  --suggested-fee-recipient="${FEE_RECIPIENT_ADDRESS}" \
   $EXTRA_OPTS
