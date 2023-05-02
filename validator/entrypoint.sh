@@ -11,7 +11,6 @@ cp /auth-token ${WALLET_DIR}/auth-token
 
 # Migrate if required
 if [[ $(validator accounts list \
-    --wallet-dir="$WALLET_DIR" \
     --wallet-password-file="${WALLET_DIR}/walletpassword.txt" \
     --mainnet \
     --accept-terms-of-use) ]]; then
@@ -47,7 +46,6 @@ LANG=$oLang LC_ALL=$oLcAll
 
 exec -c validator --mainnet \
     --datadir="$WALLET_DIR" \
-    --wallet-dir="$WALLET_DIR" \
     --monitoring-host 0.0.0.0 \
     --beacon-rpc-provider="$BEACON_RPC_PROVIDER" \
     --beacon-rpc-gateway-provider="$BEACON_RPC_GATEWAY_PROVIDER" \
