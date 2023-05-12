@@ -25,7 +25,7 @@ jobs:
     name: End to end tests
     steps:
       - uses: actions/checkout@v2
-      - run: npx @dappnode/dappnodesdk@latest github-action test-end-to-end --errorLogsTimeout 120 --healthCheckUrl http://beacon-chain.prysm.dappnode:3500/eth/v1/beacon/genesis --network mainnet  --environmentByService="{\"beacon-chain\":{\"CHECKPOINT_SYNC_URL\":\"https://checkpoint-sync.dappnode.io\"}}"
+      - run: npx @dappnode/dappnodesdk@latest github-action test-end-to-end --errorLogsTimeout 120 --healthCheckUrl http://beacon-chain.prysm.dappnode:3500/eth/v1/beacon/genesis --network mainnet --environmentByService="{\"beacon-chain\":{\"CHECKPOINT_SYNC_URL\":\"https://checkpoint-sync.dappnode.io\"}}"
 
   release:
     name: Release
