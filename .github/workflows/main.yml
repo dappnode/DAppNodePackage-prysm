@@ -16,7 +16,16 @@ jobs:
     if: github.event_name != 'push'
     steps:
       - uses: actions/checkout@v2
-      - run: npx @dappnode/dappnodesdk build --skip_save
+      - run: npx @dappnode/dappnodesdk build --skip_save     
+      
+  e2e-test:
+    runs-on: mainnet
+    needs: build-test
+    if: github.event_name != 'push'
+    name: End to end tests
+    steps:
+      - uses: actions/checkout@v2
+      - run: npx @dappnode/dappnodesdk@latest github-action test-end-to-end --errorLogsTimeout 120 --healthCheckUrl http://beacon-chain.prysm.dappnode:3500/eth/v1/beacon/genesis --network mainnet
 
   release:
     name: Release
