@@ -1,7 +1,7 @@
 {
   "name": "prysm.dnp.dappnode.eth",
-  "version": "3.0.12",
-  "upstreamVersion": "v4.0.8",
+  "version": "3.0.13",
+  "upstreamVersion": "v4.1.0-alpha.0",
   "upstreamRepo": "prysmaticlabs/prysm",
   "upstreamArg": "UPSTREAM_VERSION",
   "shortDescription": "Prysm mainnet ETH2.0 Beacon chain + validator",
