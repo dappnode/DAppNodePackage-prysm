@@ -2914,12 +2914,6 @@
           "refId": "D"
         },
         {
-          "expr": "label_replace(max by(pubkey) (validator_balance{service=\"validator.prysm.dappnode\"}), \"pubkey\", \"$1\", \"pubkey_short\", \"(.{10}).*\") ",
-          "interval": "",
-          "legendFormat": "",
-          "refId": "G"
-        },
-        {
           "expr": "label_replace(max by(pubkey) (validator_inclusion_distance{service=\"validator.prysm.dappnode\"}), \"pubkey_short\", \"$1\", \"pubkey\", \"(.{10}).*\")  ",
           "format": "table",
           "instant": true,
