@@ -106,7 +106,6 @@ function get_public_keys() {
 
   # Get validator pubkeys or exit
   if VALIDATORS_PUBKEYS="$(validator accounts list \
-    --wallet-dir="${WALLET_DIR}" \
     --wallet-password-file="${WALLETPASSWORD_FILE}" \
     --"${NETWORK}" \
     --accept-terms-of-use)"; then
@@ -134,7 +133,6 @@ function get_public_keys() {
 function export_keystores_walletpassowrd() {
   # Export validator keystores
   validator accounts backup \
-    --wallet-dir="${WALLET_DIR}" \
     --wallet-password-file="${WALLETPASSWORD_FILE}" \
     --backup-dir="${BACKUP_DIR}" \
     --backup-password-file="${WALLETPASSWORD_FILE}" \
