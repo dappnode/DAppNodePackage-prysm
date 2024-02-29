@@ -27,7 +27,10 @@
     "url": "https://github.com/dappnode/DAppNodePackage-prysm/issues"
   },
   "requirements": {
-    "minimumDappnodeVersion": "0.2.60"
+    "minimumDappnodeVersion": "0.2.89"
+  },
+  "optionalDependencies": {
+    "web3signer.dnp.dappnode.eth": "2.0.7"
   },
   "backup": [
     {
