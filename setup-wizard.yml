@@ -24,7 +24,7 @@ fields:
     target:
       type: environment
       name: FEE_RECIPIENT_ADDRESS
-      service: validator
+      service: [beacon-chain, validator]
     title: Fee Recipient Address
     description: >-
       Fee Recipient is a feature that lets you specify a priority fee recipient address on your validator client instance and beacon node. Make sure this is an address you control. After The Merge, Execution Clients will begin depositing priority fees into this address whenever your validator proposes a new block.

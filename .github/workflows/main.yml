@@ -15,16 +15,16 @@ jobs:
     name: Build test
     if: github.event_name != 'push'
     steps:
-      - uses: actions/checkout@v3
-      - run: npx @dappnode/dappnodesdk build --skip_save     
-      
+      - uses: actions/checkout@v4
+      - run: npx @dappnode/dappnodesdk build --skip_save
+
   e2e-test:
     runs-on: mainnet
     needs: build-test
     if: github.event_name != 'push'
     name: End to end tests
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - run: npx @dappnode/dappnodesdk@latest github-action test-end-to-end --errorLogsTimeout 120 --healthCheckUrl http://beacon-chain.prysm.dappnode:3500/eth/v1/beacon/genesis --network mainnet --environmentByService="{\"beacon-chain\":{\"CHECKPOINT_SYNC_URL\":\"https://checkpoint-sync.dappnode.io\"}}"
 
   release:
@@ -32,7 +32,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Publish
         run: npx @dappnode/dappnodesdk publish patch --dappnode_team_preset
         env:
