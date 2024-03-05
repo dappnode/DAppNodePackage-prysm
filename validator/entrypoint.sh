@@ -1,6 +1,6 @@
 #!/bin/sh
 
-WEB3SIGNER_API=http://web3signer.web3signer-${NETWORK}.dappnode:9000
+WEB3SIGNER_API=http://web3signer.web3signer.dappnode:9000
 DATA_DIR=/root/.eth2validators
 WALLET_DIR=${DATA_DIR}/prysm-wallet-v2
 
@@ -8,7 +8,7 @@ WALLET_DIR=${DATA_DIR}/prysm-wallet-v2
 mkdir -p ${WALLET_DIR}
 cp /auth-token ${WALLET_DIR}/auth-token
 
-if [ -n "$_DAPPNODE_GLOBAL_MEVBOOST_PRATER" ] && [ "$_DAPPNODE_GLOBAL_MEVBOOST_PRATER" = "true" ]; then
+if [ -n "$_DAPPNODE_GLOBAL_MEVBOOST_MAINNET" ] && [ "$_DAPPNODE_GLOBAL_MEVBOOST_MAINNET" = "true" ]; then
     echo "MEVBOOST is enabled"
     EXTRA_OPTS="--enable-builder ${EXTRA_OPTS}"
 fi
