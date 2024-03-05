@@ -41,7 +41,7 @@ if ! echo "$EXTRA_OPTS" | grep -q -- "--suggested-fee-recipient"; then
   EXTRA_OPTS="--suggested-fee-recipient=${FEE_RECIPIENT_ADDRESS} ${EXTRA_OPTS}"
 fi
 
-exec -c /beacon-chain \
+exec /beacon-chain \
   --datadir=/data \
   --rpc-host=0.0.0.0 \
   --accept-terms-of-use \
