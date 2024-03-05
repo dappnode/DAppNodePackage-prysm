@@ -1,22 +1,26 @@
-#!/bin/bash
+#!/bin/sh
+
+WEB3SIGNER_API=http://web3signer.web3signer-${NETWORK}.dappnode:9000
+DATA_DIR=/root/.eth2validators
+WALLET_DIR=${DATA_DIR}/prysm-wallet-v2
 
 # Copy auth-token in runtime to the prysm token dir
 mkdir -p ${WALLET_DIR}
 cp /auth-token ${WALLET_DIR}/auth-token
 
-# MEVBOOST: https://hackmd.io/@prysmaticlabs/BJeinxFsq
-if [ -n "$_DAPPNODE_GLOBAL_MEVBOOST_MAINNET" ] && [ "$_DAPPNODE_GLOBAL_MEVBOOST_MAINNET" == "true" ]; then
+if [ -n "$_DAPPNODE_GLOBAL_MEVBOOST_PRATER" ] && [ "$_DAPPNODE_GLOBAL_MEVBOOST_PRATER" = "true" ]; then
+    echo "MEVBOOST is enabled"
     EXTRA_OPTS="--enable-builder ${EXTRA_OPTS}"
 fi
 
 #Implement graffiti limit to account for non unicode characters to prevent a restart loop
 oLang=$LANG oLcAll=$LC_ALL
 LANG=C LC_ALL=C
-graffitiString=${GRAFFITI:0:32}
+graffitiString=$(echo ${GRAFFITI} | cut -c 1-32)
 LANG=$oLang LC_ALL=$oLcAll
 
-exec -c validator --mainnet \
-    --datadir="$WALLET_DIR" \
+exec /validator --mainnet \
+    --datadir="$DATA_DIR" \
     --wallet-dir="$WALLET_DIR" \
     --monitoring-host 0.0.0.0 \
     --beacon-rpc-provider="$BEACON_RPC_PROVIDER" \

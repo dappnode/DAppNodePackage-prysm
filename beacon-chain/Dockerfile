@@ -1,26 +1,21 @@
-FROM debian:bullseye-slim as binary
-
-ARG TARGETARCH
 ARG UPSTREAM_VERSION
-ENV DOWNLOAD_URL https://github.com/prysmaticlabs/prysm/releases/download
+FROM debian:bullseye-slim AS builder
 
-RUN DEBIAN_FRONTEND=noninteractive \
-    apt update && apt install --assume-yes --no-install-recommends wget ca-certificates && \
-    wget -q $DOWNLOAD_URL/$UPSTREAM_VERSION/beacon-chain-$UPSTREAM_VERSION-linux-${TARGETARCH:-amd64} -O /usr/local/bin/beacon-chain && \
-    chmod +x  /usr/local/bin/beacon-chain
+# Use ldd to copy dependencies of grep
+RUN mkdir /deps
+RUN ldd /bin/grep | tr -s '[:space:]' '\n' | grep '^/' | xargs -I {} cp -v {} /deps || true
 
-FROM debian:bullseye-slim
-
-#Copy binaries from build stage
-COPY --from=binary /usr/local/bin/beacon-chain /usr/local/bin/beacon-chain
-
-RUN apt update && \
-    apt install -y ca-certificates file && \
-    rm -rf /var/lib/apt/lists/*
-
-COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+ARG UPSTREAM_VERSION
+FROM gcr.io/prysmaticlabs/prysm/beacon-chain:${UPSTREAM_VERSION}
 
 COPY jwtsecret.hex /jwtsecret
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+
+COPY --from=builder /bin/sh /bin/sh
+COPY --from=builder /bin/grep /bin/grep
+COPY --from=builder /deps/* /lib/
+
+ENV JWT_PATH=/jwtsecret \
+    VALIDATOR_PORT=3500
 
 ENTRYPOINT [ "/usr/local/bin/entrypoint.sh" ]
-
